@@ -1,0 +1,35 @@
+{
+  "name": "zoomcar",
+  "version": "1.0.0",
+  "description": "API for zoomcar",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varshil-shah/zoomcar.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "varshil-shah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varshil-shah/zoomcar/issues"
+  },
+  "homepage": "https://github.com/varshil-shah/zoomcar#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.10.2",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
