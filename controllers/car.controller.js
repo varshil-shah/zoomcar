@@ -1,7 +1,5 @@
 const Car = require("../models/car.model");
 const RentHistory = require("../models/rent-history.model");
-const sequelize = require("../database/database");
-const { Op } = require("sequelize");
 
 const catchAsync = require("../utils/catch-async");
 const AppError = require("../utils/app-error");
@@ -61,9 +59,6 @@ exports.getRide = catchAsync(async (req, res, next) => {
         where: {
           origin,
           destination,
-          amount: {
-            [Op.lte]: required_hours * sequelize.col("Cars.rentPerHour"),
-          },
         },
       },
     ],
