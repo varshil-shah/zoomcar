@@ -27,13 +27,13 @@ const User = sequelize.define(
     password: {
       type: DataTypes.STRING,
       validate: {
-        len: {
-          args: [8, 20],
-          msg: "Password must be between 8 and 20 characters!",
-        },
-        contains: {
-          args: ["(?=.*[a-z])", "(?=.*[A-Z])", "(?=.*[0-9])"],
-          msg: "Password must contain at least one lowercase letter, one uppercase letter, and one number!",
+        function(value) {
+          const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+          if (!regex.test(value)) {
+            throw new Error(
+              "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+            );
+          }
         },
       },
       allowNull: false,

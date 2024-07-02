@@ -3,6 +3,8 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 
+const authRouter = require("./routers/auth.router");
+
 const app = express();
 
 app.use(cors());
@@ -15,6 +17,8 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+app.use("/api", authRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Zoomcar API is running! 🚀");
